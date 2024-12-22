@@ -12,6 +12,7 @@ import brandsRouter from '../routes/brandRoutes.js';
 import colorRouter from '../routes/colorRoutes.js';
 import reviewRouter from '../routes/reviewRoutes.js';
 import orderRoutes from '../routes/orderRoutes.js';
+import redis from 'redis';
 import { swaggerDocs, swaggerUi } from '../config/swagger.js';
 
 dbConnect();
@@ -38,6 +39,12 @@ app.use('/api/v1/orders', orderRoutes);
 
 app.use(notFound);
 app.use(globalErrorHandler);
+
+const client = redis.createClient({
+  url: 'redis://185.95.165.60:8001', // VPS IP adresinizi buraya yazın
+});
+console.log(client);
+
 
 
 //Home route
