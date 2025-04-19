@@ -14,8 +14,6 @@ import reviewRouter from './routes/reviewRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import redis from 'redis';
 import { swaggerDocs, swaggerUi } from './config/swagger.js';
-import redisClient from './config/redisClient.js';
-import createRedisClient from './config/redisClient.js';
 
 dbConnect();
 const app = express();
