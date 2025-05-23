@@ -14,6 +14,7 @@ import reviewRouter from './routes/reviewRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import redis from 'redis';
 import { swaggerDocs, swaggerUi } from './config/swagger.js';
+import resourceRouter from './routes/resource.js';
 
 dbConnect();
 const app = express();
@@ -35,6 +36,7 @@ app.use('/api/v1/brand', brandsRouter);
 app.use('/api/v1/color', colorRouter);
 app.use('/api/v1/review', reviewRouter);
 app.use('/api/v1/orders', orderRoutes);
+app.use('/api/v1/resources',resourceRouter);
 
 
 app.use(notFound);
@@ -81,6 +83,7 @@ app.get("test", async (req, res) => {
   //   res.status(500).json({ error: 'Redis bağlantısı sırasında bir hata oluştu', details: err.message });
   // }
 });
+
 
 //Home route
 app.get("/", (req, res) => {
